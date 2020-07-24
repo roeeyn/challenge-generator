@@ -1,0 +1,21 @@
+{
+  "name": "challenges_generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "prettier": {
+    "arrowParens": "avoid"
+  },
+  "dependencies": {
+    "awaity": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.9.25",
+    "turndown": "^6.0.0"
+  }
+}

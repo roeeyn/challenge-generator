@@ -1,0 +1,5 @@
+node_modules/
+PrepadawansGen*/
+.DS_Store
+.DS_Store?
+.env
