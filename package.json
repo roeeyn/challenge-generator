@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "jest": {
+    "testPathIgnorePatterns": ["PrepadawansGen*"]
   },
   "keywords": [],
   "author": "",
@@ -17,5 +20,8 @@
     "dotenv": "^8.2.0",
     "mongoose": "^5.9.25",
     "turndown": "^6.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
   }
 }
