@@ -7,7 +7,9 @@
     "test": "jest"
   },
   "jest": {
-    "testPathIgnorePatterns": ["PrepadawansGen*"]
+    "testPathIgnorePatterns": [
+      "PrepadawansGen*"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -16,10 +18,7 @@
     "arrowParens": "avoid"
   },
   "dependencies": {
-    "awaity": "^1.0.0",
-    "dotenv": "^8.2.0",
-    "mongoose": "^5.9.25",
-    "turndown": "^6.0.0"
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "jest": "^26.1.0"
