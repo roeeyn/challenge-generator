@@ -18,7 +18,8 @@
     "arrowParens": "avoid"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
     "jest": "^26.1.0"
