@@ -5,6 +5,7 @@ module.exports.main = (exercises, generationNumber) => {
   exercises.forEach(exercise => {
     module.exports.createRepo(exercise, rootFolder);
   });
+  return rootFolder;
 };
 
 module.exports.createRepo = (exercise, rootFolder) => {
