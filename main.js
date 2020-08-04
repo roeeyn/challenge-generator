@@ -18,6 +18,9 @@ const mainHandler = async () => {
 
     const rootFolder = await main(data.files, generationNumber);
     await configRepo(rootFolder, generationNumber);
+    console.log(
+      "Done! Remember to check the tests, and create the repo with the template option turned on."
+    );
   } catch (error) {
     console.log("error", error);
     console.log("An error occurred. Please try again.");

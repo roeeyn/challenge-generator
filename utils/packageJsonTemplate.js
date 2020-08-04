@@ -6,6 +6,11 @@ module.exports.packageJsonTemplate = generationNumber => `
   "description": "Repo with all the challenges for the generation ${generationNumber}",
   "main": "main.js",
   "scripts": {
+${Array.from({ length: 7 }, (_, idx) => idx)
+  .map(
+    idx => `    "test-${idx}": "jest Challenge${idx}/challenge${idx}.test.js",`
+  )
+  .join("\n")}
     "test": "jest"
   },
   "keywords": ["Hackademy", "challenges", "prepadawans"],
