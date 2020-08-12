@@ -1,6 +1,6 @@
 # Prepadawans Challenge Generator
 
-Prepadawans is the selected name for those who are trying to be selected as participants in the [https://www.hackademy.mx/](Hackademy Bootcamp).
+Prepadawans is the selected name for those who are trying to be selected as participants in the [Hackademy's Bootcamp](https://www.hackademy.mx).
 This project is to automate the creation of the challenges they have to solve to be eligible for the boot camp.
 
 ## Installation
