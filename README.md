@@ -37,6 +37,7 @@ Feel free to write an issue or create a PR if you think something can be done be
 
 ## Special Thanks
 Thanks to [Edabit](https://edabit.com/) for creating such an amazing platform and sharing their challenges to the world. :tada:
+
 According to the [Edabit](https://edabit.com/) terms of service (https://edabit.com/docs/terms), forking and editing content is allowed:
 > In submitting Content, including authored challenges, you agree to allow others to view, fork and edit your Content.
 
