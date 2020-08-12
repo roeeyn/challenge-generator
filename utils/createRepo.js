@@ -9,7 +9,7 @@ module.exports.main = (exercises, generationNumber) => {
     });
     return rootFolder;
   }
-  throw new Error("No exercises were fetched. Please try again.");
+  throw new Error("No exercises were fetched.");
 };
 
 module.exports.createRepo = (exercise, rootFolder) => {
