@@ -26,6 +26,14 @@
     "prettier": {
         "arrowParens": "avoid"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/roeeyn/ChallengesGenerator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/roeeyn/ChallengesGenerator/issues"
+    },
+    "homepage": "https://github.com/roeeyn/ChallengesGenerator#readme",
     "dependencies": {
         "@octokit/rest": "^18.0.3",
         "axios": "^0.19.2",
