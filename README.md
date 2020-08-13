@@ -23,14 +23,14 @@ It will prompt for a generation number or alias, and then create the folder with
 ### Automatic GitHub Repo Creation
 If you have the environment variable `GITHUB_TOKEN`, then a GitHub repo will be created for you to upload the challenges. Keep in mind that this created repo is built with the template option enabled, so you can share easily with GitHub Classroom. You may change this setting in the created repo settings section.
 
-If you want to know how to create the token click here.
+If you want to know how to create the token [click here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). We only need `read:user, repo, user:email, workflow` in scopes.
 
 ### Generated Folder Structure
 Inside the generated folder structure, there will be 7 folders, each one represents one isolated challenge. Inside each challenge folder, you will find the `README` with the particular challenge instructions.
 
 **IMPORTANT** The tests we use to automate the exercises are not perfectly parsed yet, so you have to make sure they are correct before uploading them. Also, you may try to solve the challenges to verify everything is correct too.
 
-If you want to see the status of the complete parsed tests feature, click here.
+If you want to see the status of the complete parsed tests feature, [click here](https://github.com/roeeyn/ChallengesGeneratorBackend/issues/1).
 
 ## Contribute
 Feel free to write an issue or create a PR if you think something can be done better.
