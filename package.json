@@ -1,6 +1,6 @@
 {
     "name": "@hackademymx/challenges-generator",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Create a folder with 6 programming challenges inside it.",
     "main": "main.js",
     "scripts": {
@@ -15,7 +15,11 @@
             "PrepadawansGen*"
         ]
     },
-    "keywords": ["Hackademy", "challenges", "practice"],
+    "keywords": [
+        "Hackademy",
+        "challenges",
+        "practice"
+    ],
     "author": "roeeyn",
     "license": "MIT",
     "prettier": {
