@@ -1,30 +1,33 @@
 {
-  "name": "@hackademymx/challenges-generator",
-  "version": "1.0.0",
-  "description": "Create a folder with 6 programming challenges inside it.",
-  "main": "main.js",
-  "scripts": {
-    "start":"node main.js",
-    "test": "jest"
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "PrepadawansGen*"
-    ]
-  },
-  "keywords": ["Hackademy", "challenges", "practice"],
-  "author": "roeeyn",
-  "license": "MIT",
-  "prettier": {
-    "arrowParens": "avoid"
-  },
-  "dependencies": {
-    "@octokit/rest": "^18.0.3",
-    "axios": "^0.19.2",
-    "prompt-sync": "^4.2.0",
-    "simple-git": "^2.15.0"
-  },
-  "devDependencies": {
-    "jest": "^26.1.0"
-  }
+    "name": "@hackademymx/challenges-generator",
+    "version": "1.0.0",
+    "description": "Create a folder with 6 programming challenges inside it.",
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js",
+        "test": "jest"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "jest": {
+        "testPathIgnorePatterns": [
+            "PrepadawansGen*"
+        ]
+    },
+    "keywords": ["Hackademy", "challenges", "practice"],
+    "author": "roeeyn",
+    "license": "MIT",
+    "prettier": {
+        "arrowParens": "avoid"
+    },
+    "dependencies": {
+        "@octokit/rest": "^18.0.3",
+        "axios": "^0.19.2",
+        "prompt-sync": "^4.2.0",
+        "simple-git": "^2.15.0"
+    },
+    "devDependencies": {
+        "jest": "^26.1.0"
+    }
 }
