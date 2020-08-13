@@ -1,5 +1,6 @@
 {
   "name": "@hackademymx/challenges-generator",
+  "private": false,
   "version": "1.0.0",
   "description": "Create a folder with 6 programming challenges inside it.",
   "main": "main.js",
