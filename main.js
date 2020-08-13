@@ -8,7 +8,7 @@ const { main } = require("./utils/createRepo.js");
 const prompt = require("prompt-sync")({ sigint: true });
 const { configRepo } = require("./utils/configureRepo.js");
 
-const mainHandler = async () => {
+module.exports.mainHandler = async () => {
   try {
     const generationNumber = prompt(
       "Write the Prepadawans generation (or alias): "
@@ -36,5 +36,3 @@ const mainHandler = async () => {
     console.log("or if you prefer, send us a tweet @hackademymx");
   }
 };
-
-mainHandler();

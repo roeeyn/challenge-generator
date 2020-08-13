@@ -3,6 +3,9 @@
     "version": "1.0.3",
     "description": "Create a folder with 6 programming challenges inside it.",
     "main": "main.js",
+    "bin": {
+        "challenges-generator": "./cli.js"
+    },
     "scripts": {
         "start": "node main.js",
         "test": "jest"
