@@ -1,5 +1,6 @@
 const BACKEND_HOST =
-  process.env.HACKADEMY_BACKEND_HOST || "http://localhost:5000";
+  process.env.HACKADEMY_BACKEND_HOST ||
+  "https://hackademy-challenges-generator.herokuapp.com";
 
 const axios = require("axios");
 const { main } = require("./utils/createRepo.js");
