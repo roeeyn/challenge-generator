@@ -8,7 +8,7 @@ This project is to automate the creation of the challenges they have to solve to
 You may install this as a global dependency for npm, so you can execute it later as a usual command.
 
 ```bash
-npm i @hackademymx/challenges-generator
+npm i -g @hackademymx/challenges-generator
 ```
 
 ## Usage
