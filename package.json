@@ -38,7 +38,7 @@
     "homepage": "https://github.com/roeeyn/ChallengesGenerator#readme",
     "dependencies": {
         "@octokit/rest": "^18.0.3",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "prompt-sync": "^4.2.0",
         "simple-git": "^2.15.0"
     },
