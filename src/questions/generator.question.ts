@@ -18,6 +18,15 @@ export interface IGenerateQuestion {
   choices?: Choice[];
 }
 
+/**
+ * Ask for user input for a specific attribute
+ *
+ * @async
+ * @param {String | Number | undefined} cliParam - The value of the CLI if existant
+ * @param {Boolean} skipConfirmation - If the user should be asked for confirmation
+ * @param {IGenerateQuestion} questionParams - The question parameters
+ * @returns {Promise<ICliOptions>} The answer of the user
+ */
 export const generateQuestion = async (
   cliParam: String | Number | undefined,
   skipConfirmation: Boolean,

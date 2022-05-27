@@ -1,6 +1,14 @@
 import inquirer from "inquirer";
 import { ICliOptions } from "../utils";
 
+/**
+ * Confirms the user's choice in its params
+ *
+ * @async
+ * @param {ICliOptions} cliOptions - Received CLI options
+ * @returns {Promise<{isConfirmed: Boolean}>}
+ * - Boolean promise indicating if the user confirmed
+ */
 export const confirmParamsQuestion = async (
   cliOptions: ICliOptions
 ): Promise<{

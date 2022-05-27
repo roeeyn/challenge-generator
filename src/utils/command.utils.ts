@@ -12,6 +12,11 @@ export interface ICliOptions {
   skipConfirmation?: Boolean;
 }
 
+/**
+ * Parses the commoand line arguments and returns the options
+ *
+ * @returns {ICliOptions} The received options from the command line
+ */
 export const getCliOptions = (): ICliOptions => {
   const program = command.program;
 

@@ -15,6 +15,12 @@ import {
 
 import { ProgrammingLanguage } from "./models";
 
+/**
+ * Collects the CLI options and asks for missing ones if needed.
+ *
+ * @async
+ * @returns {Promise<void>} - Returns an empty promise
+ */
 export const cli = async (): Promise<void> => {
   showTitleAndBanner();
 

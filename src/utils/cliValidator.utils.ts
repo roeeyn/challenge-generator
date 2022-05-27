@@ -3,7 +3,14 @@ import { ProgrammingLanguage } from "../models";
 
 type CliOptionKey = keyof ICliOptions;
 
-const validateKeys = (cleanedCliOptions: ICliOptions) => {
+/**
+ * Checks if the cleaned values for the CLI options are valid.
+ *
+ * @param {ICliOptions} cleanedCliOptions - Cleaned CLI options.
+ * @throws {Error} - If the cleaned values for the CLI options are invalid.
+ * @returns {ICliOptions} The verified CLI options.
+ */
+const validateKeys = (cleanedCliOptions: ICliOptions): ICliOptions => {
   const numericKeys = ["minDifficulty", "maxDifficulty"];
   const programmingLanguageKeys = ["programmingLanguage"];
 
@@ -47,6 +54,12 @@ const validateKeys = (cleanedCliOptions: ICliOptions) => {
   return cleanedCliOptions;
 };
 
+/**
+ * Cleans the CLI options, and validates them.
+ *
+ * @param {ICliOptions} cliOptions - The options received from the CLI.
+ * @returns {ICliOptions} The cleaned and validated CLI options.
+ */
 export const cleanCliOptions = (cliOptions: ICliOptions): ICliOptions => {
   const keptKeys = Object.keys(cliOptions).filter((key) => {
     return !!cliOptions[key as CliOptionKey];
