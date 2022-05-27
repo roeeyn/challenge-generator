@@ -1,13 +1,7 @@
 import {
-  authorIdQuestion,
-  authorQuestion,
-  challengeTitleQuestion,
   confirmParamsQuestion,
-  edabitIdQuestion,
-  minDifficultyQuestion,
-  minQualityQuestion,
-  programmingLanguageQuestion,
-  tagsQuestion,
+  generateQuestion,
+  QuestionType,
 } from "./questions";
 
 import {
@@ -18,6 +12,8 @@ import {
   ICliOptions,
 } from "./utils";
 
+import { ProgrammingLanguage } from "./models";
+
 export const cli = async (): Promise<void> => {
   showTitleAndBanner();
 
@@ -25,40 +21,87 @@ export const cli = async (): Promise<void> => {
 
   const skipConfirmation: Boolean = cliOptions.skipConfirmation || false;
 
-  const title: String =
-    cliOptions.title ||
-    (skipConfirmation ? "" : (await challengeTitleQuestion()).title);
+  const author: String | undefined = (
+    await generateQuestion(cliOptions.author, skipConfirmation, {
+      name: "author",
+      message: "Search for author regex? (e.g. '^M')",
+      type: QuestionType.INPUT,
+    })
+  ).author;
 
-  const edabitId: String =
-    cliOptions.edabitId ||
-    (skipConfirmation ? "" : (await edabitIdQuestion()).edabitId);
+  const authorId: String | undefined = (
+    await generateQuestion(cliOptions.authorId, skipConfirmation, {
+      name: "authorId",
+      message: "Search for author edabit id? (e.g. 'BkPgkDQGHm66X4Qai')",
+      type: QuestionType.INPUT,
+    })
+  ).authorId;
 
-  const author: String =
-    cliOptions.author ||
-    (skipConfirmation ? "" : (await authorQuestion()).author);
+  const title: String | undefined = (
+    await generateQuestion(cliOptions.title, skipConfirmation, {
+      name: "title",
+      message: "Search for title regex? (e.g. 'ort$')",
+      type: QuestionType.INPUT,
+    })
+  ).title;
 
-  const authorId: String =
-    cliOptions.authorId ||
-    (skipConfirmation ? "" : (await authorIdQuestion()).authorId);
+  const edabitId: String | undefined = (
+    await generateQuestion(cliOptions.edabitId, skipConfirmation, {
+      name: "edabitId",
+      message: "Search for edabitId? (e.g. '6vSZmN66xhMRDX8YT')",
+      type: QuestionType.INPUT,
+    })
+  ).edabitId;
 
-  const tags: String =
-    cliOptions.tags || (skipConfirmation ? "" : (await tagsQuestion()).tags);
-
-  const minDifficulty: Number = +(
-    cliOptions.minDifficulty ||
-    (skipConfirmation ? 0 : (await minDifficultyQuestion()).minDifficulty)
+  const minDifficulty: Number | undefined = parseFloat(
+    (
+      await generateQuestion(cliOptions.minDifficulty, skipConfirmation, {
+        name: "minDifficulty",
+        message: "Search for min difficulty (from 0 to 5)? (e.g. '2.5')",
+        type: QuestionType.NUMBER,
+      })
+    ).minDifficulty as string
   );
 
-  const minQuality: Number = +(
-    cliOptions.minQuality ||
-    (skipConfirmation ? 0 : (await minQualityQuestion()).minQuality)
+  const minQuality: Number | undefined = parseFloat(
+    (
+      await generateQuestion(cliOptions.minQuality, skipConfirmation, {
+        name: "minQuality",
+        message: "Search for min quality (from 0 to 5)? (e.g. '2.5')",
+        type: QuestionType.NUMBER,
+      })
+    ).minQuality as string
   );
 
-  const programmingLanguage: String =
-    cliOptions.programmingLanguage ||
-    (skipConfirmation
-      ? ""
-      : (await programmingLanguageQuestion()).programmingLanguage);
+  const programmingLanguage: ProgrammingLanguage | undefined = (
+    await generateQuestion(cliOptions.programmingLanguage, skipConfirmation, {
+      name: "programmingLanguage",
+      message: "Filter by programming language?",
+      type: QuestionType.LIST,
+      choices: [
+        {
+          name: "JavaScript",
+          value: ProgrammingLanguage.JAVASCRIPT,
+        },
+        {
+          name: "Java",
+          value: ProgrammingLanguage.JAVA,
+        },
+        {
+          name: "Python",
+          value: ProgrammingLanguage.PYTHON,
+        },
+      ],
+    })
+  ).programmingLanguage as ProgrammingLanguage | undefined;
+
+  const tags: String | undefined = (
+    await generateQuestion(cliOptions.tags, skipConfirmation, {
+      name: "tags",
+      message: "Search for tags? (e.g. 'strings, algorithms, sorting')",
+      type: QuestionType.INPUT,
+    })
+  ).tags;
 
   const resultParams: ICliOptions = {
     title,

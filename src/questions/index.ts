@@ -3,6 +3,7 @@ export * from "./authorId.question";
 export * from "./challengeTitle.question";
 export * from "./confirmation.question";
 export * from "./edabitId.question";
+export * from "./generator.question";
 export * from "./minDifficulty.question";
 export * from "./minQuality.question";
 export * from "./programmingLanguage.question";
