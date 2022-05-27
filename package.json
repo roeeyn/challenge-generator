@@ -3,14 +3,16 @@
   "version": "0.0.1",
   "description": "Fetches a code challenge from the backend, and creates the necessary files to run locally.",
   "main": "./lib/index.js",
-  "bin": "challenge-generator",
+  "bin": {
+    "challenge-generator": "./bin/challenge-generator"
+  },
   "scripts": {
-        "start": "npm run build && npm run global",
+    "start": "npm run build && npm i -g && challenge-generator",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "nyc mocha",
     "lint": "tslint -p . --fix",
     "build": "npm run clean:some && tsc -p .",
-    "global": "npm i -g && cgx",
+    "global": "npm i -g && challenge-generator",
     "clean:some": "rm -rf ./lib ./docs",
     "clean:all": "rm -rf ./node_modules ./package-lock.json ./lib ./docs",
     "refresh": "npm run clean:all && npm install",
@@ -35,6 +37,7 @@
   "homepage": "https://github.com/roeeyn/challenge-generator#readme",
   "dependencies": {
     "@types/fs-extra": "^9.0.13",
+    "commander": "^9.2.0",
     "figlet": "^1.5.2",
     "fs-extra": "^10.1.0",
     "inquirer": "^8.2.4",

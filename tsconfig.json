@@ -12,10 +12,5 @@
     "importHelpers": true,
     "removeComments": true
   },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "test",
-    "templates"
-  ]
+  "exclude": ["node_modules", "lib", "test", "templates"]
 }
