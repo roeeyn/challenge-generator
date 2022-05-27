@@ -1,9 +1,11 @@
 import { red, green, cyan } from "kleur";
 import { textSync } from "figlet";
-import { ConsoleMessage } from "../models/consoleMessage";
+import { ConsoleMessage } from "../models";
 
-const newLine = "\n";
-
+/**
+ * Shows the title ASCII art and the banner below it
+ *
+ */
 export const showTitleAndBanner = (): void => {
   console.log(
     cyan(textSync(ConsoleMessage.TITLE, { horizontalLayout: "full" }))
@@ -26,7 +28,7 @@ export const showError = (message: string | Error): void => {
  * @param {string} message - The message to show
  */
 export const showSuccess = (message: string): void => {
-  console.log(green(ConsoleMessage.SUCCESS) + message + newLine);
+  console.log(green(ConsoleMessage.SUCCESS) + message);
 };
 
 /**

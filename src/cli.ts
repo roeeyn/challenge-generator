@@ -3,7 +3,6 @@ import {
   generateQuestion,
   QuestionType,
 } from "./questions";
-
 import {
   showTitleAndBanner,
   showInfo,
@@ -11,8 +10,9 @@ import {
   getCliOptions,
   cleanCliOptions,
 } from "./utils";
-
-import { ICliOptions, ProgrammingLanguage } from "./models";
+import { getChallengeFromApi } from "./api";
+import { createFilesFromChallenge } from "./templates";
+import { ICliOptions, ProgrammingLanguage, Challenge } from "./models";
 
 /**
  * Collects the CLI options and asks for missing ones if needed.
@@ -125,14 +125,22 @@ export const cli = async (): Promise<void> => {
   });
 
   if (skipConfirmation) {
+    // Request challenge no matter what
     showInfo("Requesting challenge with params:");
     showInfo(`${JSON.stringify(resultParams, null, 2)}`);
+    const challenge: Challenge = await getChallengeFromApi(resultParams);
+
+    createFilesFromChallenge(challenge);
   } else {
     const { isConfirmed }: { isConfirmed: Boolean } =
       await confirmParamsQuestion(resultParams);
 
     if (isConfirmed === true) {
+      // Request challenge only if user confirmed
       showInfo("Fetching challenge based on the provided parameters...");
+      const challenge: Challenge = await getChallengeFromApi(resultParams);
+
+      createFilesFromChallenge(challenge);
     } else {
       showError("Aborted! No action was taken.");
     }

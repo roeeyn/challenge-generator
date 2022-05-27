@@ -1,7 +1,6 @@
 import inquirer from "inquirer";
 
-import { ICliOptions } from "../utils";
-import { Choice } from "../models";
+import { Choice, ICliOptions } from "../models";
 
 export enum QuestionType {
   INPUT = "input",
