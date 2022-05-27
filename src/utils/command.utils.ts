@@ -5,7 +5,7 @@ export interface ICliOptions {
   edabitId?: String;
   author?: String;
   authorId?: String;
-  tags?: String;
+  tags?: String | String[];
   minDifficulty?: String | Number;
   minQuality?: String | Number;
   programmingLanguage?: String;

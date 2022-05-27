@@ -20,5 +20,5 @@ export const showSuccess = (message: string): void => {
 };
 
 export const showInfo = (message: string): void => {
-  console.info(cyan(ConsoleMessage.INFO) + message + newLine);
+  console.info(cyan(ConsoleMessage.INFO) + message);
 };

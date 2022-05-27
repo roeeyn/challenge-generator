@@ -9,6 +9,7 @@ import {
   showInfo,
   showError,
   getCliOptions,
+  cleanCliOptions,
   ICliOptions,
 } from "./utils";
 
@@ -96,14 +97,18 @@ export const cli = async (): Promise<void> => {
   ).programmingLanguage as ProgrammingLanguage | undefined;
 
   const tags: String | undefined = (
-    await generateQuestion(cliOptions.tags, skipConfirmation, {
-      name: "tags",
-      message: "Search for tags? (e.g. 'strings, algorithms, sorting')",
-      type: QuestionType.INPUT,
-    })
-  ).tags;
+    await generateQuestion(
+      cliOptions.tags as String | Number | undefined,
+      skipConfirmation,
+      {
+        name: "tags",
+        message: "Search for tags? (e.g. 'strings, algorithms, sorting')",
+        type: QuestionType.INPUT,
+      }
+    )
+  ).tags as String | undefined;
 
-  const resultParams: ICliOptions = {
+  const resultParams: ICliOptions = cleanCliOptions({
     title,
     edabitId,
     author,
@@ -112,10 +117,10 @@ export const cli = async (): Promise<void> => {
     minDifficulty,
     minQuality,
     programmingLanguage,
-  };
+  });
 
   if (skipConfirmation) {
-    showInfo("Requestion challenge with params:");
+    showInfo("Requesting challenge with params:");
     showInfo(`${JSON.stringify(resultParams, null, 2)}`);
   } else {
     const { isConfirmed }: { isConfirmed: Boolean } =
