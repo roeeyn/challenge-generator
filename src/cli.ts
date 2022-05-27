@@ -10,10 +10,9 @@ import {
   showError,
   getCliOptions,
   cleanCliOptions,
-  ICliOptions,
 } from "./utils";
 
-import { ProgrammingLanguage } from "./models";
+import { ICliOptions, ProgrammingLanguage } from "./models";
 
 /**
  * Collects the CLI options and asks for missing ones if needed.

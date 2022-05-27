@@ -1,5 +1,4 @@
-import { ICliOptions } from "../utils";
-import { ProgrammingLanguage } from "../models";
+import { ProgrammingLanguage, ICliOptions } from "../models";
 
 type CliOptionKey = keyof ICliOptions;
 

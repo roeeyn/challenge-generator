@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { ICliOptions } from "../utils";
+import { ICliOptions } from "../models";
 
 /**
  * Confirms the user's choice in its params
