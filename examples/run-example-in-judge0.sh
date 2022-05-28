@@ -16,7 +16,7 @@ JUDGE0_HOST="https://${JUDGE0_HOSTNAME}"
 # Create the zip file with the quiet flag, and the - indicates that the zip will be
 # piped as stdout to the next command
 echo -e "Creating the zip file with:\033[1m index.js test.js run\033[0m"
-additional_files=$(zip -q - index.js test.js run | base64)
+additional_files=$(zip -q - index.js test.js testing-framework.js run | base64)
 
 echo "Creating the submission"
 # Create the submission with the additional files, and pipe the result through jq to
