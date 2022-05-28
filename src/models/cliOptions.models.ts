@@ -8,6 +8,7 @@ export interface ICliOptions {
   minQuality?: String | Number;
   programmingLanguage?: String;
   skipConfirmation?: Boolean;
+  verbose?: Boolean;
 }
 
 export type CleanCliOptionsType = String | Number | Boolean | String[];

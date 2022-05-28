@@ -25,6 +25,9 @@ export const cli = async (): Promise<void> => {
 
   const cliOptions: ICliOptions = getCliOptions();
 
+  // Setting global variable to see if it's verbose
+  (global as any).IS_VERBOSE = cliOptions.verbose;
+
   const skipConfirmation: Boolean = cliOptions.skipConfirmation || false;
 
   const author: String | undefined = (

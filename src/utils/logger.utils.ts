@@ -50,6 +50,17 @@ export const showWarning = (message: string): void => {
 };
 
 /**
+ * Shows a warning message with prefixed message in yellow
+ *
+ * @param {string} message - The message to show
+ */
+export const showDebug = (message: string): void => {
+  if ((global as any).IS_VERBOSE) {
+    console.log(yellow(ConsoleMessage.DEBUG) + message);
+  }
+};
+
+/**
  * Shows and info message with prefixed message in cyan
  *
  * @param {string} message - The message to show

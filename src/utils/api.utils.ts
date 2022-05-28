@@ -5,7 +5,7 @@ import {
   ICliOptions,
 } from "../models";
 
-import { showWarning } from "../utils";
+import { showDebug } from "../utils";
 
 /**
  * Transform a ChallengeApiResponse to a Challenge
@@ -56,7 +56,7 @@ export const cliOptionsToUrlParams = (cliOptions: ICliOptions): string => {
     })
     .join("&");
 
-  showWarning(`URL parameters: ${urlParams}`);
+  showDebug(`URL parameters: ${urlParams}`);
   return urlParams;
 };
 

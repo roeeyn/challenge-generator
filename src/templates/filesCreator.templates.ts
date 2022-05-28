@@ -3,6 +3,7 @@ import {
   createOrReplaceDir,
   showSuccess,
   showCreated,
+  showDebug,
   showInfo,
   FileWriter,
   progLangToFileExtension,
@@ -15,8 +16,8 @@ import { FileType, FileExtension } from "../models";
  * @param {Challenge} challenge - The Challenge from the API
  */
 export const createFilesFromChallenge = (challenge: Challenge): void => {
-  console.log(challenge);
   showSuccess("Fetched challenge successfully");
+  showDebug(JSON.stringify(challenge, null, 2));
   showInfo("Creating files...");
 
   // Create the challenge directory
@@ -28,15 +29,17 @@ export const createFilesFromChallenge = (challenge: Challenge): void => {
   // Create the README.md file
   const readmeContent = `# ${challenge.title}\n\n${challenge.rawInstructions}`;
   fileWriter(readmeContent, FileType.README, FileExtension.MARKDOWN);
-  showCreated(`Created README.md`);
+  showCreated(`File README.md`);
 
   // Create the index file
   const fileExtension: FileExtension = progLangToFileExtension(
     challenge.programmingLanguage
   );
   fileWriter(challenge.rawCode as string, FileType.CODE, fileExtension);
-  showCreated(`Created index.${fileExtension}`);
+  showCreated(`File index.${fileExtension}`);
 
-  // TODO: Add the test files and the run files
+  fileWriter(challenge.rawTests as string, FileType.TEST, fileExtension);
+  showCreated(`File test.${fileExtension}`);
+
   // TODO: Test the run files with Judge 0
 };

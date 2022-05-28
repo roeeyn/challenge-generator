@@ -27,6 +27,7 @@ export const getCliOptions = (): ICliOptions => {
       "Filter by programming language?"
     )
     .option("-s, --skip-confirmation", "Skip confirmation?")
+    .option("-v, --verbose", "Show additional information")
     .parse(process.argv);
 
   return program.opts();
