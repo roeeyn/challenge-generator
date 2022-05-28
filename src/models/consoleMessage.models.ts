@@ -5,4 +5,5 @@ export enum ConsoleMessage {
   INFO = "INFO: ",
   SUCCESS = "SUCCESS: ",
   TITLE = "Challenge Generator",
+  WARNING = "WARNING: ",
 }

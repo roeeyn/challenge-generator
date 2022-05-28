@@ -5,6 +5,8 @@ import {
   ICliOptions,
 } from "../models";
 
+import { showWarning } from "../utils";
+
 /**
  * Transform a ChallengeApiResponse to a Challenge
  *
@@ -43,16 +45,37 @@ export const cliOptionsToUrlParams = (cliOptions: ICliOptions): string => {
       const value: CleanCliOptionsType = cliOptions[
         key as keyof ICliOptions
       ] as CleanCliOptionsType;
-      // const encodedValue = encodeURIComponent(value as string | number);
+
       const computedValue: string | number = (
         Array.isArray(value) ? JSON.stringify(value) : value
       ) as string | number;
+
       const encodedValue: string = encodeURIComponent(computedValue);
-      return `${camelCaseToKebabCase(key)}=${encodedValue}`;
+
+      return `${camelCaseToSnakeCase(key)}=${encodedValue}`;
     })
     .join("&");
 
+  showWarning(`URL parameters: ${urlParams}`);
   return urlParams;
+};
+
+/**
+ * Transform camel case string to snake case.
+ * e.g. authorId -> author_id
+ *
+ * @param {string} str - camel case string
+ * @returns {string} - snake case string
+ */
+export const camelCaseToSnakeCase = (str: string): string => {
+  return str
+    .split("")
+    .map((letter, idx) => {
+      return letter.toUpperCase() === letter
+        ? `${idx !== 0 ? "_" : ""}${letter.toLowerCase()}`
+        : letter;
+    })
+    .join("");
 };
 
 /**

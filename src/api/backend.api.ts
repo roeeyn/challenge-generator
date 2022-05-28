@@ -14,7 +14,6 @@ const BACKEND_HOST = process.env.BACKEND_HOST || "http://localhost:4000";
 export const getChallengeFromApi = async (
   cliOptions: ICliOptions
 ): Promise<Challenge> => {
-  // FIXME: fix the options params for camelcase to hyphen
   const urlParams: string = cliOptionsToUrlParams(cliOptions);
   const url: string = `${BACKEND_HOST}/api/challenges?${urlParams}`;
   const response = await fetch(url);

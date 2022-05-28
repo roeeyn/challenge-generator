@@ -1,4 +1,4 @@
-import { red, green, cyan } from "kleur";
+import { red, green, cyan, yellow } from "kleur";
 import { textSync } from "figlet";
 import { ConsoleMessage } from "../models";
 
@@ -38,6 +38,15 @@ export const showSuccess = (message: string): void => {
  */
 export const showCreated = (message: string): void => {
   console.log(green(ConsoleMessage.CREATED) + message);
+};
+
+/**
+ * Shows a warning message with prefixed message in yellow
+ *
+ * @param {string} message - The message to show
+ */
+export const showWarning = (message: string): void => {
+  console.log(yellow(ConsoleMessage.WARNING) + message);
 };
 
 /**
