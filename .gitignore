@@ -134,3 +134,4 @@ lib/
 docs/
 challenge-*/
 *.test.js
+.DS_Store
