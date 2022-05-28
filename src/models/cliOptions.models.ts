@@ -9,3 +9,5 @@ export interface ICliOptions {
   programmingLanguage?: String;
   skipConfirmation?: Boolean;
 }
+
+export type CleanCliOptionsType = String | Number | Boolean | String[];

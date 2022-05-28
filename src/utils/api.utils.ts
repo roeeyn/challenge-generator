@@ -1,4 +1,9 @@
-import { Challenge, ChallengeApiResponse, ICliOptions } from "../models";
+import {
+  Challenge,
+  ChallengeApiResponse,
+  CleanCliOptionsType,
+  ICliOptions,
+} from "../models";
 
 /**
  * Transform a ChallengeApiResponse to a Challenge
@@ -35,11 +40,35 @@ export const responseToChallenge = (
 export const cliOptionsToUrlParams = (cliOptions: ICliOptions): string => {
   const urlParams: string = Object.keys(cliOptions)
     .map((key) => {
-      const value = cliOptions[key as keyof ICliOptions];
-      const encodedValue = encodeURIComponent(value as string | number);
-      return `${key}=${encodedValue}`;
+      const value: CleanCliOptionsType = cliOptions[
+        key as keyof ICliOptions
+      ] as CleanCliOptionsType;
+      // const encodedValue = encodeURIComponent(value as string | number);
+      const computedValue: string | number = (
+        Array.isArray(value) ? JSON.stringify(value) : value
+      ) as string | number;
+      const encodedValue: string = encodeURIComponent(computedValue);
+      return `${camelCaseToKebabCase(key)}=${encodedValue}`;
     })
     .join("&");
 
   return urlParams;
+};
+
+/**
+ * Transform camel case string to kebab case.
+ * e.g. authorId -> author-id
+ *
+ * @param {string} str - camel case string
+ * @returns {string} - kebab case string
+ */
+export const camelCaseToKebabCase = (str: string): string => {
+  return str
+    .split("")
+    .map((letter, idx) => {
+      return letter.toUpperCase() === letter
+        ? `${idx !== 0 ? "-" : ""}${letter.toLowerCase()}`
+        : letter;
+    })
+    .join("");
 };
