@@ -5,18 +5,43 @@ set -e
 if [ -z "$JUDGE0_AUTH_TOKEN" ]; then
   echo "JUDGE0_AUTH_TOKEN is not set, please set it."
   echo "You can do this by running:"
-  echo "export JUDGE0_AUTH_TOKEN='<your_token>'"
+  echo -e "\033[1mexport JUDGE0_AUTH_TOKEN='<your_token>'\033[0m"
   exit 1
 fi
+
+# Validate files are passed as arguments
+if [ "$#" -lt 1 ]; then
+  echo "Please write at least one file argument"
+  echo -e "example: \033[1mjude0-submissioner file1 file2 file3\033[0m"
+  exit 1
+fi
+
+# Validate files are not links nor directories
+for file in "$@"
+do
+  if [ -h  "$file" ]
+  then
+    echo -e "\033[31m\033[1m$file is a symbolic link.\033[0m"
+    echo "Please write only valid files."
+    exit 1
+  fi
+  if [ -d "$file" ]
+  then
+    echo -e "\033[31m\033[1m$file is a directory.\033[0m"
+    echo "Please write only valid files."
+    exit 1
+  fi
+done
 
 # Configuration of the host
 JUDGE0_HOSTNAME="judge.hackademy.mx"
 JUDGE0_HOST="https://${JUDGE0_HOSTNAME}"
 
 # Create the zip file with the quiet flag, and the - indicates that the zip will be
-# piped as stdout to the next command
-echo -e "Creating the zip file with:\033[1m index.js test.js run\033[0m"
-additional_files=$(zip -q - index.js test.js testing-framework.js run | base64)
+# piped as stdout to the next command and the -j that the file will be only the name
+# without the path
+echo -e "Creating the zip file with: \033[1m$@\033[0m"
+additional_files=$(zip -q -j - $@ | base64)
 
 echo "Creating the submission"
 # Create the submission with the additional files, and pipe the result through jq to
