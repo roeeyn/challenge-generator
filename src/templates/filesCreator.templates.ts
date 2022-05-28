@@ -38,6 +38,7 @@ export const createFilesFromChallenge = (challenge: Challenge): void => {
   fileWriter(challenge.rawCode as string, FileType.CODE, fileExtension);
   showCreated(`File index.${fileExtension}`);
 
+  // Create the test file
   fileWriter(challenge.rawTests as string, FileType.TEST, fileExtension);
   showCreated(`File test.${fileExtension}`);
 
