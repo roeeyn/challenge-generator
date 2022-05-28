@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Validation that the token is available
 if [ -z "$JUDGE0_AUTH_TOKEN" ]; then
