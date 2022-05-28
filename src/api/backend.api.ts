@@ -1,6 +1,10 @@
 import { ICliOptions, Challenge, ChallengeApiResponse } from "../models";
 import fetch from "node-fetch";
-import { responseToChallenge, cliOptionsToUrlParams } from "../utils";
+import {
+  showDebug,
+  responseToChallenge,
+  cliOptionsToUrlParams,
+} from "../utils";
 
 const BACKEND_HOST = process.env.BACKEND_HOST || "http://localhost:4000";
 
@@ -16,6 +20,8 @@ export const getChallengeFromApi = async (
 ): Promise<Challenge> => {
   const urlParams: string = cliOptionsToUrlParams(cliOptions);
   const url: string = `${BACKEND_HOST}/api/challenges?${urlParams}`;
+  showDebug(`Complete URL: ${url}`);
+
   const response = await fetch(url);
 
   const apiResponse: ChallengeApiResponse = (await response.json())
