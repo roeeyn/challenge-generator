@@ -1,7 +1,8 @@
 export enum ConsoleMessage {
-  TITLE = "Challenge Generator",
   BANNER = "Create challenge files for Hackademy Platform",
+  CREATED = "CREATED: ",
   ERROR = "ERROR: ",
-  SUCCESS = "SUCCESS: ",
   INFO = "INFO: ",
+  SUCCESS = "SUCCESS: ",
+  TITLE = "Challenge Generator",
 }

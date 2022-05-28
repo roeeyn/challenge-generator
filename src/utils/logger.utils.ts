@@ -32,6 +32,15 @@ export const showSuccess = (message: string): void => {
 };
 
 /**
+ * Shows a success message with prefixed message in green
+ *
+ * @param {string} message - The message to show
+ */
+export const showCreated = (message: string): void => {
+  console.log(green(ConsoleMessage.CREATED) + message);
+};
+
+/**
  * Shows and info message with prefixed message in cyan
  *
  * @param {string} message - The message to show
