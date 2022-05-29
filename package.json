@@ -1,5 +1,5 @@
 {
-  "name": "@hackademymx/challenge-generator",
+  "name": "@roeeyn/challenge-generator",
   "version": "0.0.1",
   "description": "Fetches a code challenge from the backend, and creates the necessary files to run locally.",
   "main": "./lib/index.js",
