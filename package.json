@@ -6,10 +6,19 @@
   "bin": {
     "challenge-generator": "./bin/challenge-generator"
   },
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "start": "npm run build && npm i -g && challenge-generator",
     "test": "jest",
     "build": "npm run clean:some && tsc -p .",
+    "format": "prettier -w .",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run format && npm run test",
+    "preversion": "npm run format",
+    "version": "npm run format",
+    "postversion": "git push && git push --tags",
     "global": "npm i -g && challenge-generator",
     "clean:some": "rm -rf ./lib ./docs",
     "clean:all": "rm -rf ./node_modules ./package-lock.json ./lib ./docs",
@@ -27,7 +36,7 @@
     "hackademymx",
     "hackademy"
   ],
-  "author": "Rodrigo Medina",
+  "author": "roeeyn",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/roeeyn/challenge-generator/issues"
