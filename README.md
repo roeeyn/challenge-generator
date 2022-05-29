@@ -54,12 +54,10 @@ test("Test", () => {
 });
 ```
 
-### Notes
+### TODO: Pending Features
 
-TODO: add python and java examples.
-TODO: validate functions in judge0
-TODO: create script to upload files to judge0, maybe brew
-TODO: Poner warning si se ve aglún require en el código
+- Create script to upload files to judge0, maybe brew
+- Warn the user if some unexpected element is present in the tests
 
 ## README File
 
