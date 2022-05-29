@@ -21,6 +21,8 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    outputs:
+      new-release-tag: ${{ steps.publish-step.outputs.new-release-tag }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -33,7 +35,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm install -g prettier
-      - run: npm version patch
+      - id: publish-step
+        run: npm version patch
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
