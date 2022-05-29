@@ -10,5 +10,6 @@ export const enum FileType {
   README = "README",
   CODE = "index",
   TEST = "test",
+  TEST_FRAMEWORK = "testframework",
   RUN = "run",
 }

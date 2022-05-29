@@ -1,5 +1,6 @@
 import fs from "fs";
 import { FileType, FileExtension, ProgrammingLanguage } from "../models";
+import { minify } from "terser";
 
 export type FileWriter = (
   content: string,
@@ -24,6 +25,28 @@ export const createOrReplaceDir = (path: string): FileWriter => {
   ) => {
     fs.writeFileSync(`${path}/${fileType}.${fileExtension}`, content);
   };
+};
+
+/**
+ * Read the template file and minimize if needed.
+ *
+ * @async
+ * @param {FileExtension} fileExtension - The file extension of the template file.
+ * @param {Boolean} [minifyContent] - Whether or not to minify the content.
+ * @returns {Promise<string>} - The content of the template file.
+ */
+export const readTemplateTestFile = async (
+  fileExtension: FileExtension,
+  minifyContent: Boolean = true
+): Promise<string> => {
+  const templateContent: string = fs.readFileSync(
+    `src/templates/testframework.templates.${fileExtension}`,
+    "utf8"
+  );
+
+  return minifyContent && fileExtension === FileExtension.JAVASCRIPT
+    ? ((await minify(templateContent)).code as string)
+    : templateContent;
 };
 
 /**

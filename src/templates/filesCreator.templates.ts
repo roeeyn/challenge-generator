@@ -7,6 +7,7 @@ import {
   showInfo,
   FileWriter,
   progLangToFileExtension,
+  readTemplateTestFile,
 } from "../utils";
 import { FileType, FileExtension } from "../models";
 
@@ -15,7 +16,9 @@ import { FileType, FileExtension } from "../models";
  *
  * @param {Challenge} challenge - The Challenge from the API
  */
-export const createFilesFromChallenge = (challenge: Challenge): void => {
+export const createFilesFromChallenge = async (
+  challenge: Challenge
+): Promise<void> => {
   showSuccess("Fetched challenge successfully");
   showDebug(JSON.stringify(challenge, null, 2));
   showInfo("Creating files...");
@@ -42,5 +45,8 @@ export const createFilesFromChallenge = (challenge: Challenge): void => {
   fileWriter(challenge.rawTests as string, FileType.TEST, fileExtension);
   showCreated(`File test.${fileExtension}`);
 
-  // TODO: Test the run files with Judge 0
+  // Add the testing framework
+  const testFrameworkTemplate = await readTemplateTestFile(fileExtension, true);
+  fileWriter(testFrameworkTemplate, FileType.TEST_FRAMEWORK, fileExtension);
+  showCreated(`File testframework.${fileExtension}`);
 };

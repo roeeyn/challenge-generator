@@ -42,6 +42,7 @@
     "kleur": "^4.1.4",
     "node-fetch": "^2.6.7",
     "reflect-metadata": "^0.1.13",
+    "terser": "^5.13.1",
     "tslib": "^2.4.0"
   },
   "devDependencies": {

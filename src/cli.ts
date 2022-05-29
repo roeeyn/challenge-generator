@@ -7,6 +7,7 @@ import {
   showTitleAndBanner,
   showInfo,
   showError,
+  showSuccess,
   getCliOptions,
   cleanCliOptions,
 } from "./utils";
@@ -133,7 +134,9 @@ export const cli = async (): Promise<void> => {
     showInfo(`${JSON.stringify(resultParams, null, 2)}`);
     const challenge: Challenge = await getChallengeFromApi(resultParams);
 
-    createFilesFromChallenge(challenge);
+    await createFilesFromChallenge(challenge);
+
+    showSuccess("Challenge created successfully!");
   } else {
     const { isConfirmed }: { isConfirmed: Boolean } =
       await confirmParamsQuestion(resultParams);
@@ -143,8 +146,11 @@ export const cli = async (): Promise<void> => {
       showInfo("Fetching challenge based on the provided parameters...");
       const challenge: Challenge = await getChallengeFromApi(resultParams);
 
-      createFilesFromChallenge(challenge);
+      await createFilesFromChallenge(challenge);
+
+      showSuccess("Challenge created successfully!");
     } else {
+      // If aborted, do nothing
       showError("Aborted! No action was taken.");
     }
   }
