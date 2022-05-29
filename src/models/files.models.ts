@@ -1,9 +1,10 @@
 export const enum FileExtension {
-  PYTHON = "py",
-  JAVA = "java",
-  JAVASCRIPT = "js",
-  MARKDOWN = "md",
-  UNKNOWN = "unknown",
+  PYTHON = ".py",
+  JAVA = ".java",
+  JAVASCRIPT = ".js",
+  MARKDOWN = ".md",
+  UNKNOWN = ".unknown",
+  NO_EXTENSION = "",
 }
 
 export const enum FileType {

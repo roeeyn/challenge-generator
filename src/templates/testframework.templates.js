@@ -13,10 +13,11 @@ class Test {
    * @returns {void} returns nothing.
    */
   static throwAssertError(resultValue, expectedValue, errorMessage) {
-    console.error(errorMessage);
-    throw new Error(
-      `${expectedValue} was expected but ${resultValue} was given.`
+    errorMessage && console.error(errorMessage);
+    console.error(
+      `TEST FAILED: ${expectedValue} was expected but ${resultValue} was given.`
     );
+    process.exit(1);
   }
 
   /**

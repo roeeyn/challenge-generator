@@ -8,6 +8,7 @@ import {
   FileWriter,
   progLangToFileExtension,
   readTemplateTestFile,
+  readTemplateRunFile,
 } from "../utils";
 import { FileType, FileExtension } from "../models";
 
@@ -39,14 +40,19 @@ export const createFilesFromChallenge = async (
     challenge.programmingLanguage
   );
   fileWriter(challenge.rawCode as string, FileType.CODE, fileExtension);
-  showCreated(`File index.${fileExtension}`);
+  showCreated(`File index${fileExtension}`);
 
   // Create the test file
   fileWriter(challenge.rawTests as string, FileType.TEST, fileExtension);
-  showCreated(`File test.${fileExtension}`);
+  showCreated(`File test${fileExtension}`);
 
   // Add the testing framework
   const testFrameworkTemplate = await readTemplateTestFile(fileExtension, true);
   fileWriter(testFrameworkTemplate, FileType.TEST_FRAMEWORK, fileExtension);
-  showCreated(`File testframework.${fileExtension}`);
+  showCreated(`File testframework${fileExtension}`);
+
+  // Add the run file
+  const runTemplate: string = readTemplateRunFile(fileExtension);
+  fileWriter(runTemplate, FileType.RUN, FileExtension.NO_EXTENSION);
+  showCreated(`File run`);
 };

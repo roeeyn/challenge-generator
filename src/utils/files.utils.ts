@@ -23,7 +23,7 @@ export const createOrReplaceDir = (path: string): FileWriter => {
     fileType: FileType,
     fileExtension: FileExtension
   ) => {
-    fs.writeFileSync(`${path}/${fileType}.${fileExtension}`, content);
+    fs.writeFileSync(`${path}/${fileType}${fileExtension}`, content);
   };
 };
 
@@ -40,13 +40,26 @@ export const readTemplateTestFile = async (
   minifyContent: Boolean = true
 ): Promise<string> => {
   const templateContent: string = fs.readFileSync(
-    `src/templates/testframework.templates.${fileExtension}`,
+    `src/templates/testframework.templates${fileExtension}`,
     "utf8"
   );
 
   return minifyContent && fileExtension === FileExtension.JAVASCRIPT
     ? ((await minify(templateContent)).code as string)
     : templateContent;
+};
+
+/**
+ * Read the run template file.
+ *
+ * @param {FileExtension} fileExtension - The file extension of the template file.
+ * @returns {string} The content of the template file.
+ */
+export const readTemplateRunFile = (fileExtension: FileExtension): string => {
+  return fs.readFileSync(
+    `src/templates/run.templates${fileExtension}.bash`,
+    "utf8"
+  );
 };
 
 /**

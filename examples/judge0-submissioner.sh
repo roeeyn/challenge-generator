@@ -9,39 +9,29 @@ if [ -z "$JUDGE0_AUTH_TOKEN" ]; then
   exit 1
 fi
 
-# Validate files are passed as arguments
-if [ "$#" -lt 1 ]; then
-  echo "Please write at least one file argument"
-  echo -e "example: \033[1mjude0-submissioner file1 file2 file3\033[0m"
+# Validate challenge directory
+if [ ! -d "$1" ]
+then
+  echo -e "\033[31m\033[1m$1 is not directory.\033[0m"
+  echo "Please write only the challenge root directory."
   exit 1
 fi
-
-# Validate files are not links nor directories
-for file in "$@"
-do
-  if [ -h  "$file" ]
-  then
-    echo -e "\033[31m\033[1m$file is a symbolic link.\033[0m"
-    echo "Please write only valid files."
-    exit 1
-  fi
-  if [ -d "$file" ]
-  then
-    echo -e "\033[31m\033[1m$file is a directory.\033[0m"
-    echo "Please write only valid files."
-    exit 1
-  fi
-done
 
 # Configuration of the host
 JUDGE0_HOSTNAME="judge.hackademy.mx"
 JUDGE0_HOST="https://${JUDGE0_HOSTNAME}"
 
+echo -e "Creating the zip from: \033[1m$@\033[0m"
+
+# Create a temp file with all the content concatenated
+# TODO: Add another extensions
+cat "$1/index.js" "$1/testframework.js" "$1/test.js" > upload.judge0
+echo -e "Created the upload temporary file"
+
 # Create the zip file with the quiet flag, and the - indicates that the zip will be
 # piped as stdout to the next command and the -j that the file will be only the name
 # without the path
-echo -e "Creating the zip file with: \033[1m$@\033[0m"
-additional_files=$(zip -q -j - $@ | base64)
+additional_files=$(zip -q -j - upload.judge0 "$1/run" | base64)
 
 echo "Creating the submission"
 # Create the submission with the additional files, and pipe the result through jq to
@@ -54,6 +44,9 @@ token=$(curl -s -X POST \
   | jq -r ".token")
 
 echo -e "Created submission with token: \033[1m$token\033[0m"
+
+rm upload.judge0
+echo -e "Removed temporary file"
 
 # Loop until the submission is finished
 while true; do
