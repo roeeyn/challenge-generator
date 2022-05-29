@@ -1,47 +1,91 @@
-# Prepadawans Challenge Generator
+# Challenge Generator
 
-Prepadawans is the selected name for those who are trying to be selected as participants in the [Hackademy's Bootcamp](https://www.hackademy.mx).
-This project is to automate the creation of the challenges they have to solve to be eligible for the boot camp.
+We should have three files at least:
 
-## Installation
+- Index File
+- Test File
+- README
+- run (only for Judge0)
 
-You may install this as a global dependency for npm, so you can execute it later as a usual command.
+## Index File
 
-```bash
-npm i -g @hackademymx/challenges-generator
+Example:
+
+```javascript
+function hello() {
+  //Escribe aquí tu solución
+}
+
+module.exports = hello;
 ```
 
-## Usage
-After installing the package, you have to execute it wherever you want to create the challenges folder.
+## Test File
 
-```bash
-challenges-generator
+Example:
+
+```javascript
+const hello = require("./index");
+
+function test(title, callback) {
+  try {
+    callback();
+  } catch (error) {
+    console.log("Falló " + title + "...");
+    throw new Error(error);
+  }
+}
+
+function expect(result) {
+  return {
+    toBe(expected) {
+      if (result !== expected) {
+        throw new Error({
+          message: `expected ${expected} but result is ${result}`,
+        });
+      }
+    },
+  };
+}
+
+test("Test", () => {
+  const result = hello();
+  const expected = "Hola mundo!";
+  expect(result).toBe(expected);
+});
 ```
 
-It will prompt for a generation number or alias, and then create the folder with the challenges inside. 
+### TODO: Pending Features
 
-### Automatic GitHub Repo Creation
-If you have the environment variable `GITHUB_TOKEN`, then a GitHub repo will be created for you to upload the challenges. Keep in mind that this created repo is built with the template option enabled, so you can share easily with GitHub Classroom. You may change this setting in the created repo settings section.
+- Create script to upload files to judge0, maybe brew
+- Warn the user if some unexpected element is present in the tests
 
-If you want to know how to create the token [click here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). We only need `read:user, repo, user:email, workflow` in scopes.
+## README File
 
-### Generated Folder Structure
-Inside the generated folder structure, there will be 7 folders, each one represents one isolated challenge. Inside each challenge folder, you will find the `README` with the particular challenge instructions.
+Example:
 
-**IMPORTANT** The tests we use to automate the exercises are not perfectly parsed yet, so you have to make sure they are correct before uploading them. Also, you may try to solve the challenges to verify everything is correct too.
+```md
+## PASOS PARA RESOLVER EL EJERCICIO 🚀
 
-If you want to see the status of the complete parsed tests feature, [click here](https://github.com/roeeyn/ChallengesGeneratorBackend/issues/1).
+- Escribe tu solución en la función del archivo index.js
+- Ejecuta los test con `node test.js`
+```
 
-## Contribute
-Feel free to write an issue or create a PR if you think something can be done better.
+## Run File (only for Judge0)
 
-## Special Thanks
-Thanks to [Edabit](https://edabit.com/) for creating such an amazing platform and sharing their challenges to the world. :tada:
+Example:
 
-According to the [Edabit](https://edabit.com/) terms of service (https://edabit.com/docs/terms), forking and editing content is allowed:
-> In submitting Content, including authored challenges, you agree to allow others to view, fork and edit your Content.
+```bash
+node test.js
+```
 
-Thanks to [@MikeFranco](https://github.com/MikeFranco) who helped me creating the [edabit web scraper](https://github.com/roeeyn/EdabitScraper) that we used to automate the creation of the challenges.
+## Ideas about the flow
 
-
-Made with 💙 from 🇲🇽🌮
+```mermaid
+graph LR
+    A((START)) --> B{Select Type}
+    B --> |Custom| E[\Answer all the questions\]
+    B --> |Completely Random| F[(Fetch Challenge from the API)]
+    E --> F
+    F --> G[/Create the Files/]
+    G --> H((END))
+```

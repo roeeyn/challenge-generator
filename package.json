@@ -1,48 +1,61 @@
 {
-    "name": "@hackademymx/challenges-generator",
-    "version": "1.1.2",
-    "description": "Create a folder with 6 programming challenges inside it.",
-    "main": "main.js",
-    "bin": {
-        "challenges-generator": "./cli.js"
-    },
-    "scripts": {
-        "start": "node main.js",
-        "test": "jest"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "jest": {
-        "testPathIgnorePatterns": [
-            "PrepadawansGen*"
-        ]
-    },
-    "keywords": [
-        "Hackademy",
-        "challenges",
-        "practice"
-    ],
-    "author": "roeeyn",
-    "license": "MIT",
-    "prettier": {
-        "arrowParens": "avoid"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/roeeyn/ChallengesGenerator.git"
-    },
-    "bugs": {
-        "url": "https://github.com/roeeyn/ChallengesGenerator/issues"
-    },
-    "homepage": "https://github.com/roeeyn/ChallengesGenerator#readme",
-    "dependencies": {
-        "@octokit/rest": "^18.0.3",
-        "axios": "^0.19.2",
-        "prompt-sync": "^4.2.0",
-        "simple-git": "^2.15.0"
-    },
-    "devDependencies": {
-        "jest": "^26.1.0"
-    }
+  "name": "@hackademymx/challenge-generator",
+  "version": "0.0.1",
+  "description": "Fetches a code challenge from the backend, and creates the necessary files to run locally.",
+  "main": "./lib/index.js",
+  "bin": {
+    "challenge-generator": "./bin/challenge-generator"
+  },
+  "scripts": {
+    "start": "npm run build && npm i -g && challenge-generator",
+    "test": "jest",
+    "build": "npm run clean:some && tsc -p .",
+    "global": "npm i -g && challenge-generator",
+    "clean:some": "rm -rf ./lib ./docs",
+    "clean:all": "rm -rf ./node_modules ./package-lock.json ./lib ./docs",
+    "refresh": "npm run clean:all && npm install",
+    "publish-package": "npm run build && npm publish",
+    "docs": "typedoc --entryPointStrategy expand --out docs ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roeeyn/challenge-generator.git"
+  },
+  "keywords": [
+    "challenge",
+    "coding",
+    "hackademymx",
+    "hackademy"
+  ],
+  "author": "Rodrigo Medina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roeeyn/challenge-generator/issues"
+  },
+  "homepage": "https://github.com/roeeyn/challenge-generator#readme",
+  "dependencies": {
+    "commander": "^9.2.0",
+    "figlet": "^1.5.2",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4",
+    "inversify": "^6.0.1",
+    "kleur": "^4.1.4",
+    "node-fetch": "^2.6.7",
+    "reflect-metadata": "^0.1.13",
+    "terser": "^5.13.1",
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.4",
+    "@types/fs-extra": "^9.0.13",
+    "@types/inquirer": "^8.2.1",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.35",
+    "@types/node-fetch": "^2.6.1",
+    "jest": "^28.1.0",
+    "ts-jest": "^28.0.3",
+    "ts-node": "^10.8.0",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.4"
+  }
 }
