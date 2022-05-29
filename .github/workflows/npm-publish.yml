@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - run: git config --global user.email "rodrigo.medina.neri@gmail.com"
       - run: git config --global user.name "Rodrigo Medina"
       - uses: actions/setup-node@v3
