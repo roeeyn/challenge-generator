@@ -1,1 +1,1 @@
-python upload.judge0
+python3 upload.judge0

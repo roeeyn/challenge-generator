@@ -5,7 +5,7 @@ from typing import Optional
 class Test:
     @staticmethod
     def assert_equals(
-        executed_value: Any, expected_value: Any, error_message: Optional[str]
+        executed_value: Any, expected_value: Any, error_message: Optional[str] = None
     ):
         """Asserts that the executed value is equal to the expected value.
 

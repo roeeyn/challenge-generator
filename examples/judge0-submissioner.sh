@@ -9,6 +9,13 @@ if [ -z "$JUDGE0_AUTH_TOKEN" ]; then
   exit 1
 fi
 
+# Usage example
+if [ -z "$1" ] && [ -z "$2" ]; then
+  echo -e "Usage: \033[1m$0 <challenge_dir> <extension>\033[0m"
+  echo -e "Example: \033[1m$0 challenge-sorting-strings py\033[0m"
+  exit 1
+fi
+
 # Validate challenge directory
 if [ ! -d "$1" ]
 then
@@ -17,15 +24,35 @@ then
   exit 1
 fi
 
+# Validate file extension
+if [ -z "$2" ]
+then
+  echo "Pass the extension as the second argument."
+  echo -e "Supported extensions are \033[1m'py'\033[0m and \033[1m'js'\033[0m"
+  exit 1
+fi
+
+if [ "$2" != "py" ] && [ "$2" != "js" ]
+then
+  echo -e "Unsupported extension: \033[31m\033[1m$2\033[0m"
+  echo -e "Supported extensions are \033[1m'py'\033[0m and \033[1m'js'\033[0m"
+  exit 1
+fi
+
+
 # Configuration of the host
 JUDGE0_HOSTNAME="judge.hackademy.mx"
 JUDGE0_HOST="https://${JUDGE0_HOSTNAME}"
 
 echo -e "Creating the zip from: \033[1m$@\033[0m"
 
+# Add new line to all the files
+echo "" >> "$1/index.$2"
+echo "" >> "$1/testframework.$2"
+echo "" >> "$1/test.$2"
+
 # Create a temp file with all the content concatenated
-# TODO: Add another extensions
-cat "$1/index.js" "$1/testframework.js" "$1/test.js" > upload.judge0
+cat "$1/index.$2" "$1/testframework.$2" "$1/test.$2" > upload.judge0
 echo -e "Created the upload temporary file"
 
 # Create the zip file with the quiet flag, and the - indicates that the zip will be
