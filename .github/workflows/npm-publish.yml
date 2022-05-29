@@ -28,6 +28,7 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm install -g prettier
       - run: npm version patch
       - run: npm publish
         env:
