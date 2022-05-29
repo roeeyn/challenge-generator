@@ -6,7 +6,7 @@ name: Create GitHub Release
 on:
   push:
     tags:
-      - "v*"
+      - "*"
 
 jobs:
   tagged-release:
