@@ -132,9 +132,13 @@ export const cli = async (): Promise<void> => {
     // Request challenge no matter what
     showInfo("Requesting challenge with params:");
     showInfo(`${JSON.stringify(resultParams, null, 2)}`);
-    const challenge: Challenge = await getChallengeFromApi(resultParams);
-
-    await createFilesFromChallenge(challenge);
+    try {
+      const challenge: Challenge = await getChallengeFromApi(resultParams);
+      await createFilesFromChallenge(challenge);
+    } catch (error) {
+      showError((error as Error).message);
+      process.exit(1);
+    }
 
     showSuccess("Challenge created successfully!");
   } else {
@@ -144,9 +148,14 @@ export const cli = async (): Promise<void> => {
     if (isConfirmed === true) {
       // Request challenge only if user confirmed
       showInfo("Fetching challenge based on the provided parameters...");
-      const challenge: Challenge = await getChallengeFromApi(resultParams);
 
-      await createFilesFromChallenge(challenge);
+      try {
+        const challenge: Challenge = await getChallengeFromApi(resultParams);
+        await createFilesFromChallenge(challenge);
+      } catch (error) {
+        showError((error as Error).message);
+        process.exit(1);
+      }
 
       showSuccess("Challenge created successfully!");
     } else {
