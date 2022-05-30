@@ -4,7 +4,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Getting Started](#getting-started)
@@ -14,7 +13,7 @@
   - [Generate a `javascript` challenge](#generate-a-javascript-challenge)
   - [Generate a `java` challenge](#generate-a-java-challenge)
 - [Challenge Contents](#challenge-contents)
-  - [README](#readme)
+  - [README File](#readme-file)
   - [Index File](#index-file)
   - [Test File](#test-file)
   - [Test Framework File](#test-framework-file)
