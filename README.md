@@ -75,13 +75,13 @@ npx @roeeyn/challenge-generator --programming-language java -s
 
 The created challenge folder contains the following files:
 
-- [README](#readme)
+- [README File](#readme-file)
 - [Index File](#index-file)
 - [Test File](#test-file)
 - [Test Framework File](#test-framework-file)
-- [Run](#run-file)
+- [Run File](#run-file)
 
-### README
+### README File
 
 This is the file which contains the challenge description, and some of the examples provided. This is usually provided as a markdown file, so the formatted is done automatically.
 
