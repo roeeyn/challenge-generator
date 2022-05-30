@@ -1,5 +1,6 @@
 import command from "commander";
 import { ICliOptions } from "../models";
+import { version } from "../version";
 
 /**
  * Parses the commoand line arguments and returns the options
@@ -10,7 +11,7 @@ export const getCliOptions = (): ICliOptions => {
   const program = command.program;
 
   program
-    .version("0.0.1")
+    .version(version)
     .description("A CLI for generating coding challenges")
     .option("--title <title>", "Filter by title?")
     .option("--edabit-id <edabitID>", "Filter by edabit ID?")
