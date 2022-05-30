@@ -90,18 +90,18 @@ This file contains the execution script to run whenever this challenge is upload
 We can filter most of the params we want the challenge to contain. These are the following:
 
 | Flag                    | Requires Value? | Description                                                                                   | Example                                  |
-| ----------------------- | --------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| -V, --version           | ❌              | Prints the CLI version                                                                        | `0.0.1`                                  |
-| -t, --title             | ✅              | Title regex to search                                                                         | `ort$` e.g. Titles which ends with 'ort' |
-| --edabit-id             | ✅              | If you know the value of the edabit id, you can set it directly                               | `6vSZmN66xhMRDX8YT`                      |
-| -a, --author            | ✅              | Author regex to search                                                                        | `^M` e.g Author which starts with 'M'    |
-| -t, --tags              | ✅              | Tags to serch separated by commas                                                             | `strings,loops`                          |
-| -d, --min-difficulty    | ✅              | The minimum difficulty the challenge should have from 0 (easiest) to 5 (hardest)              | `2.5`                                    |
-| -q, --min-quality       | ✅              | The minimum quality the challenge should have from 0 (lowest) to 5 (highest)                  | `2.5`                                    |
-| --programming-language  | ✅              | The challenge programming language. Only `java`, `javascript`, and `python3` is supported.    | `javascript`                             |
-| -s, --skip-confirmation | ❌              | If the confirmation message should be skipped, and if the other parametrs should be discarded | N/A                                      |
-| -v, --verbose           | ❌              | Prints debugging information                                                                  | N/A                                      |
-| -h, --help              | ❌              | Prints this information                                                                       | N/A                                      |
+| ----------------------- | :-------------: | --------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| -V, --version           |       ❌        | Prints the CLI version                                                                        | `0.0.1`                                  |
+| -t, --title             |       ✅        | Title regex to search                                                                         | `ort$` e.g. Titles which ends with 'ort' |
+| --edabit-id             |       ✅        | If you know the value of the edabit id, you can set it directly                               | `6vSZmN66xhMRDX8YT`                      |
+| -a, --author            |       ✅        | Author regex to search                                                                        | `^M` e.g Author which starts with 'M'    |
+| -t, --tags              |       ✅        | Tags to serch separated by commas                                                             | `strings,loops`                          |
+| -d, --min-difficulty    |       ✅        | The minimum difficulty the challenge should have from 0 (easiest) to 5 (hardest)              | `2.5`                                    |
+| -q, --min-quality       |       ✅        | The minimum quality the challenge should have from 0 (lowest) to 5 (highest)                  | `2.5`                                    |
+| --programming-language  |       ✅        | The challenge programming language. Only `java`, `javascript`, and `python3` is supported.    | `javascript`                             |
+| -s, --skip-confirmation |       ❌        | If the confirmation message should be skipped, and if the other parametrs should be discarded | N/A                                      |
+| -v, --verbose           |       ❌        | Prints debugging information                                                                  | N/A                                      |
+| -h, --help              |       ❌        | Prints this information                                                                       | N/A                                      |
 
 ## Future Roadmap
 
