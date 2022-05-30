@@ -1,6 +1,6 @@
 {
-  "name": "@hackademymx/challenge-generator",
-  "version": "0.0.1",
+  "name": "@roeeyn/challenge-generator",
+  "version": "2.3.0",
   "description": "Fetches a code challenge from the backend, and creates the necessary files to run locally.",
   "main": "./lib/index.js",
   "bin": {
@@ -9,15 +9,19 @@
   "files": [
     "lib/**/*"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "npm run build && npm i -g && challenge-generator",
     "test": "jest",
     "build": "npm run clean:some && tsc -p .",
     "format": "prettier -w .",
+    "format:check": "prettier -c . '!lib/**/*'",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run format && npm run test",
-    "preversion": "npm run format",
-    "version": "npm run format",
+    "prepublishOnly": "npm run format:check && npm run test",
+    "preversion": "npm run format:check",
+    "version": "npm run format:check",
     "postversion": "git push && git push --tags",
     "global": "npm i -g && challenge-generator",
     "clean:some": "rm -rf ./lib ./docs",
