@@ -1,4 +1,5 @@
 # Challenge Generator
+[![npm version](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg)](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator)
 
 ![Demo GIF](https://media.giphy.com/media/E6XxTAGmDYXgQK6Hph/giphy.gif)
 
