@@ -127,6 +127,5 @@ We can filter most of the params we want the challenge to contain. These are the
 
 ## Future Roadmap
 
-- Create script to upload files to judge0, maybe brew
-- Warn the user if some unexpected element is present in the tests
-- Better validate input for friendly error messages
+- Create script to upload files to judge0, maybe brew.
+- Warn the user if some unexpected element is present in the tests.
