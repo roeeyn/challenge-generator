@@ -1,2 +1,1 @@
-def hello_world():
-    return 'Hello World!'
+def validate_binary(b):

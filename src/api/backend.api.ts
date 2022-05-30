@@ -6,7 +6,9 @@ import {
   cliOptionsToUrlParams,
 } from "../utils";
 
-const BACKEND_HOST = process.env.BACKEND_HOST || "http://localhost:4000";
+const BACKEND_HOST =
+  process.env.BACKEND_HOST ||
+  "https://challenge-generator-backend.herokuapp.com";
 
 /**
  * Challenge API client
@@ -27,5 +29,7 @@ export const getChallengeFromApi = async (
   const apiResponse: ChallengeApiResponse = (await response.json())
     .data as ChallengeApiResponse;
 
-  return responseToChallenge(apiResponse);
+  if (apiResponse) return responseToChallenge(apiResponse);
+
+  throw new Error("No challenge was found for those filters");
 };

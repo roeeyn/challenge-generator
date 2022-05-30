@@ -1,21 +1,25 @@
-# Recursion: Length of a String
+# Pentagonal Number
 
-Write a function that returns the length of a string. **Make your function recursive.**
+Write a function that takes a positive integer `num` and calculates how many dots exist in a pentagonal shape around the center dot on the _Nth_ iteration.
+
+In the image below you can see the first iteration is only a single dot. On the second, there are 6 dots. On the third, there are 16 dots, and on the fourth there are 31 dots.
+
+![alt text](https://edabit-challenges.s3.amazonaws.com/pentagonal_number.png "Pentagonal Number")
+
+Return the number of dots that exist in the whole pentagon on the _Nth_ iteration.
 
 ### Examples
 
 ```
-length("apple") ➞ 5
+pentagonal(1) ➞ 1
 
-length("make") ➞ 4
+pentagonal(2) ➞ 6
 
-length("a") ➞ 1
+pentagonal(3) ➞ 16
 
-length("") ➞ 0
+pentagonal(8) ➞ 141
 ```
 
 ### Notes
 
-Check the **Resources** tab for info on recursion.
-
-TODO: Example not workin currently
+N/A
