@@ -65,7 +65,7 @@ npx @roeeyn/challenge-generator --programming-language javascript -s
 
 ### Generate a `java` challenge
 
-> **WARNING** Even if we can create a challenge for Java, we haven't tested it yet on Jude0 so the submission tools may not work correctly as the testframework and run file are not yet implemented.
+> :warning: Even if we can create a challenge for Java, we haven't tested it yet on Jude0 so the submission tools may not work correctly as the testframework and run file are not yet implemented.
 
 ```bash
 npx @roeeyn/challenge-generator --programming-language java -s
@@ -97,7 +97,7 @@ This is the file which contains all the unit tests for the challenge. This usual
 
 This file contains our **minified** custom testing framework, to validate that the code uploaded from the user is correct. To see the original framework, see the [templates](src/templates/) folder.
 
-> **WARNING** We have include the most used functions, but there are challenges that contains specific testing for that specific challenge and our test framework may not work on that. **This is not usual**, though.
+> :warning: We have include the most used functions, but there are challenges that contains specific testing for that specific challenge and our test framework may not work on that. **This is not usual**, though.
 
 ### Run File
 
