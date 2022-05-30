@@ -6,6 +6,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Getting Started](#getting-started)
@@ -129,7 +130,7 @@ We can filter most of the params we want the challenge to contain. These are the
 
 ## Judge0 Submission
 
-We created a script ([judge0-submissioner](examples/judge0-submissioner.sh)) that can help you testing the submissions into judge0, you can find it in the [examples](examples/) folder. The basic usage of this script is the following:
+We created a script ([judge0-submissioner](examples/judge0-submissioner.sh)) that can help you testing the submissions into judge0 easily, you can find it in the [examples](examples/) folder. The basic usage of this script is the following:
 
 ```bash
 # Maybe you need to give execution access
