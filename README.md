@@ -1,5 +1,7 @@
 # Challenge Generator
 
+![Demo GIF](https://media.giphy.com/media/E6XxTAGmDYXgQK6Hph/giphy.gif)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -49,6 +51,7 @@ npx @roeeyn/challenge-generator --help
 ### Generate a challenge selecting each parameter
 
 ```bash
+# To skip a parameter just press Enter
 npx @roeeyn/challenge-generator
 ```
 
