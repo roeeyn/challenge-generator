@@ -1,6 +1,6 @@
 # Challenge Generator
 
-[![npm version](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg)](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator)
+[![npm version](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg?branch=master&kill_cache=1)](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator?branch=master&kill_cache=1)
 
 ![Demo GIF](https://media.giphy.com/media/E6XxTAGmDYXgQK6Hph/giphy.gif)
 
