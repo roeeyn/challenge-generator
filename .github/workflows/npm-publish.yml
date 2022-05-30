@@ -35,6 +35,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm install -g prettier
+      - run: git restore src/version.ts
       - run: npm version patch
       - run: npm publish
         env:
