@@ -2,6 +2,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Getting Started](#getting-started)
@@ -21,7 +22,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-This CLI generates a challenge folder based on the [challenge-generator-backend API](https://github.com/roeeyn/challenge-generator-backend). The content of the folder is described in the [challenge content](#Challenge-Contents) section.
+This CLI generates a challenge folder based on the [challenge-generator-backend API](https://github.com/roeeyn/challenge-generator-backend). The content of the folder is described in the [challenge content](#challenge-contents) section.
 
 The usual flow is the following:
 
@@ -37,7 +38,7 @@ graph LR
 
 ## Getting Started
 
-For further customization, go to the [Advanced Usage](Advanced-Usage) section.
+For further customization, go to the [Advanced Usage](#advanced-usage) section.
 
 ### To get general help
 
@@ -75,11 +76,11 @@ npx @roeeyn/challenge-generator --programming-language java -s
 
 The created challenge folder contains the following files:
 
-- [README](README)
-- [Index File](Index-File)
-- [Test File](Test-File)
-- [Test Framework File](Test-Framework-File)
-- [Run](Run)
+- [README](#readme)
+- [Index File](#index-file)
+- [Test File](#test-file)
+- [Test Framework File](#test-framework-file)
+- [Run](#run-file)
 
 ### README
 
@@ -91,7 +92,7 @@ The index file contains the initial function of the challenge, which should be g
 
 ### Test File
 
-This is the file which contains all the unit tests for the challenge. This usually make use of the custom testing framework provided, but see the [Test Framework File](Test-Framework-File) for the details.
+This is the file which contains all the unit tests for the challenge. This usually make use of the custom testing framework provided, but see the [Test Framework File](#test-framework-file) for the details.
 
 ### Test Framework File
 
