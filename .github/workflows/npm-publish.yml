@@ -26,7 +26,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: master
-          token: ${{ secrets.PAT }}
       - run: git config --global user.email "rodrigo.medina.neri@gmail.com"
       - run: git config --global user.name "Rodrigo Medina"
       - uses: actions/setup-node@v3
@@ -35,17 +34,13 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm install -g prettier
-      - id: new-release
-        run: |
-          RELEASE=$(npm version patch | tail -n 1)
-          echo "::set-output name=new-release-version::$RELEASE"
+      - run: npm version patch
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   tagged-release:
-    needs: build
-    if: startsWith(github.ref, 'refs/tags/')
+    needs: publish-npm
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
     steps:
