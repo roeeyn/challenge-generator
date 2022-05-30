@@ -6,7 +6,9 @@ import {
   cliOptionsToUrlParams,
 } from "../utils";
 
-const BACKEND_HOST = process.env.BACKEND_HOST || "http://localhost:4000";
+const BACKEND_HOST =
+  process.env.BACKEND_HOST ||
+  "https://challenge-generator-backend.herokuapp.com";
 
 /**
  * Challenge API client
