@@ -1,10 +1,12 @@
 # Challenge Generator
+
 [![npm version](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg)](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator)
 
 ![Demo GIF](https://media.giphy.com/media/E6XxTAGmDYXgQK6Hph/giphy.gif)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Getting Started](#getting-started)
@@ -125,7 +127,25 @@ We can filter most of the params we want the challenge to contain. These are the
 | -v, --verbose           |       ❌        | Prints debugging information                                                                  | N/A                                      |
 | -h, --help              |       ❌        | Prints this information                                                                       | N/A                                      |
 
+## Judge0 Submission
+
+We created a script ([judge0-submissioner](examples/judge0-submissioner.sh)) that can help you testing the submissions into judge0, you can find it in the [examples](examples/) folder. The basic usage of this script is the following:
+
+```bash
+# Maybe you need to give execution access
+chmod +x ./examples/judge0-submissioner.sh
+
+# Set the judge0 token (auth, not user)
+export JUDGE0_AUTH_TOKEN='YOUR_AUTH_TOKEN'
+
+# Submit the challenge solution and the extension (py or js)
+./examples/judge0-submissioner.sh your_challenge_directory your_lang_extension
+
+# Real example
+./examples/judge0-submissioner.sh ./challenge-proper-modulo-operator js
+```
+
 ## Future Roadmap
 
-- Create script to upload files to judge0, maybe brew.
+- Improve Judge0 submissioner to a better CLI.
 - Warn the user if some unexpected element is present in the tests.
