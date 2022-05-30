@@ -1,11 +1,12 @@
 # Challenge Generator
 
-[![npm version](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg)](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator)
+[![npm version](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg?branch=master&kill_cache=1)](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator?branch=master&kill_cache=1)
 
 ![Demo GIF](https://media.giphy.com/media/E6XxTAGmDYXgQK6Hph/giphy.gif)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Getting Started](#getting-started)
