@@ -1,6 +1,6 @@
 {
   "name": "@roeeyn/challenge-generator",
-  "version": "2.2.4",
+  "version": "2.2.8",
   "description": "Fetches a code challenge from the backend, and creates the necessary files to run locally.",
   "main": "./lib/index.js",
   "bin": {
