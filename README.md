@@ -1,7 +1,25 @@
 # Challenge Generator
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Getting Started](#getting-started)
+  - [To get general help](#to-get-general-help)
+  - [Generate a challenge selecting each parameter](#generate-a-challenge-selecting-each-parameter)
+  - [Generate a `python3` challenge](#generate-a-python3-challenge)
+  - [Generate a `javascript` challenge](#generate-a-javascript-challenge)
+  - [Generate a `java` challenge](#generate-a-java-challenge)
+- [Challenge Contents](#challenge-contents)
+  - [README](#readme)
+  - [Index File](#index-file)
+  - [Test File](#test-file)
+  - [Test Framework File](#test-framework-file)
+  - [Run File](#run-file)
+- [Advanced Usage](#advanced-usage)
+- [Future Roadmap](#future-roadmap)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 This CLI generates a challenge folder based on the [challenge-generator-backend API](https://github.com/roeeyn/challenge-generator-backend). The content of the folder is described in the [challenge content](#Challenge-Contents) section.
 
