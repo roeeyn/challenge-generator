@@ -6,7 +6,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Getting Started](#getting-started)
@@ -22,6 +21,7 @@
   - [Test Framework File](#test-framework-file)
   - [Run File](#run-file)
 - [Advanced Usage](#advanced-usage)
+- [Judge0 Submission](#judge0-submission)
 - [Future Roadmap](#future-roadmap)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
