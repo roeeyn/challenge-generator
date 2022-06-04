@@ -1,0 +1,217 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@roeeyn/challenge-generator</title><meta name="description" content="Documentation for @roeeyn/challenge-generator"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@roeeyn/challenge-generator</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1> @roeeyn/challenge-generator </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#challenge-generator" id="challenge-generator" style="color: inherit; text-decoration: none;">
+  <h1>Challenge Generator</h1>
+</a>
+<p><a href="https://badge.fury.io/js/@roeeyn%2Fchallenge-generator?branch=master&amp;kill_cache=1"><img src="https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg?branch=master&kill_cache=1" alt="npm version"></a></p>
+<p><img src="https://media.giphy.com/media/E6XxTAGmDYXgQK6Hph/giphy.gif" alt="Demo GIF"></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#to-get-general-help">To get general help</a></li>
+<li><a href="#generate-a-challenge-selecting-each-parameter">Generate a challenge selecting each parameter</a></li>
+<li><a href="#generate-a-python3-challenge">Generate a <code>python3</code> challenge</a></li>
+<li><a href="#generate-a-javascript-challenge">Generate a <code>javascript</code> challenge</a></li>
+<li><a href="#generate-a-java-challenge">Generate a <code>java</code> challenge</a></li>
+</ul>
+</li>
+<li><a href="#challenge-contents">Challenge Contents</a><ul>
+<li><a href="#readme-file">README File</a></li>
+<li><a href="#index-file">Index File</a></li>
+<li><a href="#test-file">Test File</a></li>
+<li><a href="#test-framework-file">Test Framework File</a></li>
+<li><a href="#run-file">Run File</a></li>
+</ul>
+</li>
+<li><a href="#advanced-usage">Advanced Usage</a></li>
+<li><a href="#judge0-submission">Judge0 Submission</a></li>
+<li><a href="#future-roadmap">Future Roadmap</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<p>This CLI generates a challenge folder based on the <a href="https://github.com/roeeyn/challenge-generator-backend">challenge-generator-backend API</a>. The content of the folder is described in the <a href="#challenge-contents">challenge content</a> section.</p>
+<p>The usual flow is the following:</p>
+<pre><code class="language-mermaid">graph LR
+    A((START)) --&gt; B{Select Type}
+    B --&gt; |Custom| E[\Answer all the questions\]
+    B --&gt; |Completely Random| F[(Fetch Challenge from the API)]
+    E --&gt; F
+    F --&gt; G[/Create the Files/]
+    G --&gt; H((END))
+</code></pre>
+
+<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+  <h2>Getting Started</h2>
+</a>
+<p>For further customization, go to the <a href="#advanced-usage">Advanced Usage</a> section.</p>
+
+<a href="#to-get-general-help" id="to-get-general-help" style="color: inherit; text-decoration: none;">
+  <h3>To get general help</h3>
+</a>
+<pre><code class="language-bash"><span class="hl-0">npx @roeeyn/challenge-generator --help</span>
+</code></pre>
+
+<a href="#generate-a-challenge-selecting-each-parameter" id="generate-a-challenge-selecting-each-parameter" style="color: inherit; text-decoration: none;">
+  <h3>Generate a challenge selecting each parameter</h3>
+</a>
+<pre><code class="language-bash"><span class="hl-1"># To skip a parameter just press Enter</span><br/><span class="hl-0">npx @roeeyn/challenge-generator</span>
+</code></pre>
+
+<a href="#generate-a-python3-challenge" id="generate-a-python3-challenge" style="color: inherit; text-decoration: none;">
+  <h3>Generate a <code>python3</code> challenge</h3>
+</a>
+<pre><code class="language-bash"><span class="hl-0">npx @roeeyn/challenge-generator --programming-language python3 -s</span>
+</code></pre>
+
+<a href="#generate-a-javascript-challenge" id="generate-a-javascript-challenge" style="color: inherit; text-decoration: none;">
+  <h3>Generate a <code>javascript</code> challenge</h3>
+</a>
+<pre><code class="language-bash"><span class="hl-0">npx @roeeyn/challenge-generator --programming-language javascript -s</span>
+</code></pre>
+
+<a href="#generate-a-java-challenge" id="generate-a-java-challenge" style="color: inherit; text-decoration: none;">
+  <h3>Generate a <code>java</code> challenge</h3>
+</a>
+<blockquote>
+<p>:warning: Even if we can create a challenge for Java, we haven&#39;t tested it yet on Jude0 so the submission tools may not work correctly as the testframework and run file are not yet implemented.</p>
+</blockquote>
+<pre><code class="language-bash"><span class="hl-0">npx @roeeyn/challenge-generator --programming-language java -s</span>
+</code></pre>
+
+<a href="#challenge-contents" id="challenge-contents" style="color: inherit; text-decoration: none;">
+  <h2>Challenge Contents</h2>
+</a>
+<p>The created challenge folder contains the following files:</p>
+<ul>
+<li><a href="#readme-file">README File</a></li>
+<li><a href="#index-file">Index File</a></li>
+<li><a href="#test-file">Test File</a></li>
+<li><a href="#test-framework-file">Test Framework File</a></li>
+<li><a href="#run-file">Run File</a></li>
+</ul>
+
+<a href="#readme-file" id="readme-file" style="color: inherit; text-decoration: none;">
+  <h3>README File</h3>
+</a>
+<p>This is the file which contains the challenge description, and some of the examples provided. This is usually provided as a markdown file, so the formatted is done automatically.</p>
+
+<a href="#index-file" id="index-file" style="color: inherit; text-decoration: none;">
+  <h3>Index File</h3>
+</a>
+<p>The index file contains the initial function of the challenge, which should be given to the user directly.</p>
+
+<a href="#test-file" id="test-file" style="color: inherit; text-decoration: none;">
+  <h3>Test File</h3>
+</a>
+<p>This is the file which contains all the unit tests for the challenge. This usually make use of the custom testing framework provided, but see the <a href="#test-framework-file">Test Framework File</a> for the details.</p>
+
+<a href="#test-framework-file" id="test-framework-file" style="color: inherit; text-decoration: none;">
+  <h3>Test Framework File</h3>
+</a>
+<p>This file contains our <strong>minified</strong> custom testing framework, to validate that the code uploaded from the user is correct. To see the original framework, see the <a href="src/templates/">templates</a> folder.</p>
+<blockquote>
+<p>:warning: We have include the most used functions, but there are challenges that contains specific testing for that specific challenge and our test framework may not work on that. <strong>This is not usual</strong>, though.</p>
+</blockquote>
+
+<a href="#run-file" id="run-file" style="color: inherit; text-decoration: none;">
+  <h3>Run File</h3>
+</a>
+<p>This file contains the execution script to run whenever this challenge is uploaded to Judge0.</p>
+
+<a href="#advanced-usage" id="advanced-usage" style="color: inherit; text-decoration: none;">
+  <h2>Advanced Usage</h2>
+</a>
+<p>We can filter most of the params we want the challenge to contain. These are the following:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th align="center">Requires Value?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-V, --version</td>
+<td align="center">❌</td>
+<td>Prints the CLI version</td>
+<td><code>0.0.1</code></td>
+</tr>
+<tr>
+<td>-t, --title</td>
+<td align="center">✅</td>
+<td>Title regex to search</td>
+<td><code>ort$</code> e.g. Titles which ends with &#39;ort&#39;</td>
+</tr>
+<tr>
+<td>--edabit-id</td>
+<td align="center">✅</td>
+<td>If you know the value of the edabit id, you can set it directly</td>
+<td><code>6vSZmN66xhMRDX8YT</code></td>
+</tr>
+<tr>
+<td>-a, --author</td>
+<td align="center">✅</td>
+<td>Author regex to search</td>
+<td><code>^M</code> e.g Author which starts with &#39;M&#39;</td>
+</tr>
+<tr>
+<td>-t, --tags</td>
+<td align="center">✅</td>
+<td>Tags to serch separated by commas</td>
+<td><code>strings,loops</code></td>
+</tr>
+<tr>
+<td>-d, --min-difficulty</td>
+<td align="center">✅</td>
+<td>The minimum difficulty the challenge should have from 0 (easiest) to 5 (hardest)</td>
+<td><code>2.5</code></td>
+</tr>
+<tr>
+<td>-q, --min-quality</td>
+<td align="center">✅</td>
+<td>The minimum quality the challenge should have from 0 (lowest) to 5 (highest)</td>
+<td><code>2.5</code></td>
+</tr>
+<tr>
+<td>--programming-language</td>
+<td align="center">✅</td>
+<td>The challenge programming language. Only <code>java</code>, <code>javascript</code>, and <code>python3</code> is supported.</td>
+<td><code>javascript</code></td>
+</tr>
+<tr>
+<td>-s, --skip-confirmation</td>
+<td align="center">❌</td>
+<td>If the confirmation message should be skipped, and if the other parametrs should be discarded</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>-v, --verbose</td>
+<td align="center">❌</td>
+<td>Prints debugging information</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>-h, --help</td>
+<td align="center">❌</td>
+<td>Prints this information</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+
+<a href="#judge0-submission" id="judge0-submission" style="color: inherit; text-decoration: none;">
+  <h2>Judge0 Submission</h2>
+</a>
+<p>We created a script (<a href="examples/judge0-submissioner.sh">judge0-submissioner</a>) that can help you testing the submissions into judge0 easily, you can find it in the <a href="examples/">examples</a> folder. The basic usage of this script is the following:</p>
+<pre><code class="language-bash"><span class="hl-1"># Maybe you need to give execution access</span><br/><span class="hl-0">chmod +x ./examples/judge0-submissioner.sh</span><br/><br/><span class="hl-1"># Set the judge0 token (auth, not user)</span><br/><span class="hl-2">export</span><span class="hl-0"> JUDGE0_AUTH_TOKEN=</span><span class="hl-3">&#39;YOUR_AUTH_TOKEN&#39;</span><br/><br/><span class="hl-1"># Submit the challenge solution and the extension (py or js)</span><br/><span class="hl-0">./examples/judge0-submissioner.sh your_challenge_directory your_lang_extension</span><br/><br/><span class="hl-1"># Real example</span><br/><span class="hl-0">./examples/judge0-submissioner.sh ./challenge-proper-modulo-operator js</span>
+</code></pre>
+
+<a href="#future-roadmap" id="future-roadmap" style="color: inherit; text-decoration: none;">
+  <h2>Future Roadmap</h2>
+</a>
+<ul>
+<li>Improve Judge0 submissioner to a better CLI.</li>
+<li>Warn the user if some unexpected element is present in the tests.</li>
+</ul>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Modules</a></li><li class=" tsd-kind-module"><a href="modules/api.html">api</a></li><li class=" tsd-kind-module"><a href="modules/api_backend_api.html">api/backend.api</a></li><li class=" tsd-kind-module"><a href="modules/cli.html">cli</a></li><li class=" tsd-kind-module"><a href="modules/index.html">index</a></li><li class=" tsd-kind-module"><a href="modules/models.html">models</a></li><li class=" tsd-kind-module"><a href="modules/models_answerChoice_models.html">models/answer<wbr/>Choice.models</a></li><li class=" tsd-kind-module"><a href="modules/models_api_models.html">models/api.models</a></li><li class=" tsd-kind-module"><a href="modules/models_cliOptions_models.html">models/cli<wbr/>Options.models</a></li><li class=" tsd-kind-module"><a href="modules/models_consoleMessage_models.html">models/console<wbr/>Message.models</a></li><li class=" tsd-kind-module"><a href="modules/models_files_models.html">models/files.models</a></li><li class=" tsd-kind-module"><a href="modules/questions.html">questions</a></li><li class=" tsd-kind-module"><a href="modules/questions_confirmation_question.html">questions/confirmation.question</a></li><li class=" tsd-kind-module"><a href="modules/questions_generator_question.html">questions/generator.question</a></li><li class=" tsd-kind-module"><a href="modules/templates.html">templates</a></li><li class=" tsd-kind-module"><a href="modules/templates_filesCreator_templates.html">templates/files<wbr/>Creator.templates</a></li><li class=" tsd-kind-module"><a href="modules/utils.html">utils</a></li><li class=" tsd-kind-module"><a href="modules/utils_api_utils.html">utils/api.utils</a></li><li class=" tsd-kind-module"><a href="modules/utils_cliValidator_utils.html">utils/cli<wbr/>Validator.utils</a></li><li class=" tsd-kind-module"><a href="modules/utils_command_utils.html">utils/command.utils</a></li><li class=" tsd-kind-module"><a href="modules/utils_files_utils.html">utils/files.utils</a></li><li class=" tsd-kind-module"><a href="modules/utils_logger_utils.html">utils/logger.utils</a></li><li class=" tsd-kind-module"><a href="modules/version.html">version</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li><li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li><li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

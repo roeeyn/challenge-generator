@@ -1,1 +1,0 @@
-function detectWord(str) {}
