@@ -43,6 +43,7 @@ graph LR
 ## Getting Started
 
 For further customization, go to the [Advanced Usage](#advanced-usage) section.
+If you want to take a look at the modules documentation, click [here](https://roeeyn.github.io/challenge-generator/).
 
 ### To get general help
 
