@@ -1,6 +1,9 @@
 import fs from "fs";
 import { FileType, FileExtension, ProgrammingLanguage } from "../models";
 import { minify } from "terser";
+import { join } from "path";
+
+const BIN_PATH = join(__dirname, "../../lib");
 
 export type FileWriter = (
   content: string,
@@ -23,7 +26,7 @@ export const createOrReplaceDir = (path: string): FileWriter => {
     fileType: FileType,
     fileExtension: FileExtension
   ) => {
-    fs.writeFileSync(`${path}/${fileType}${fileExtension}`, content);
+    fs.writeFileSync(join(`${path}`, `${fileType}${fileExtension}`), content);
   };
 };
 
@@ -40,7 +43,7 @@ export const readTemplateTestFile = async (
   minifyContent: Boolean = true
 ): Promise<string> => {
   const templateContent: string = fs.readFileSync(
-    `src/templates/testframework.templates${fileExtension}`,
+    join(BIN_PATH, `templates`, `testframework.templates${fileExtension}`),
     "utf8"
   );
 
@@ -57,7 +60,7 @@ export const readTemplateTestFile = async (
  */
 export const readTemplateRunFile = (fileExtension: FileExtension): string => {
   return fs.readFileSync(
-    `src/templates/run.templates${fileExtension}.bash`,
+    join(BIN_PATH, `templates`, `run.templates${fileExtension}.bash`),
     "utf8"
   );
 };
