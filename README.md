@@ -1,4 +1,4 @@
-# Challenge Generator
+# Coding Challenge Generator
 
 [![npm version](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator.svg?branch=master&kill_cache=1)](https://badge.fury.io/js/@roeeyn%2Fchallenge-generator?branch=master&kill_cache=1)
 
@@ -51,26 +51,26 @@ If you want to take a look at the modules documentation, click [here](https://ro
 npx @roeeyn/challenge-generator --help
 ```
 
-### Generate a challenge selecting each parameter
+### Generate a coding challenge selecting each parameter
 
 ```bash
 # To skip a parameter just press Enter
 npx @roeeyn/challenge-generator
 ```
 
-### Generate a `python3` challenge
+### Generate a `python3` coding challenge
 
 ```bash
 npx @roeeyn/challenge-generator --programming-language python3 -s
 ```
 
-### Generate a `javascript` challenge
+### Generate a `javascript` coding challenge
 
 ```bash
 npx @roeeyn/challenge-generator --programming-language javascript -s
 ```
 
-### Generate a `java` challenge
+### Generate a `java` coding challenge
 
 > :warning: Even if we can create a challenge for Java, we haven't tested it yet on Jude0 so the submission tools may not work correctly as the testframework and run file are not yet implemented.
 
@@ -78,9 +78,9 @@ npx @roeeyn/challenge-generator --programming-language javascript -s
 npx @roeeyn/challenge-generator --programming-language java -s
 ```
 
-## Challenge Contents
+## Coding Challenge Contents
 
-The created challenge folder contains the following files:
+The created coding challenge folder contains the following files:
 
 - [README File](#readme-file)
 - [Index File](#index-file)
@@ -90,29 +90,29 @@ The created challenge folder contains the following files:
 
 ### README File
 
-This is the file which contains the challenge description, and some of the examples provided. This is usually provided as a markdown file, so the formatted is done automatically.
+This is the file which contains the coding challenge description, and some of the examples provided. This is usually provided as a markdown file, so the formatted is done automatically.
 
 ### Index File
 
-The index file contains the initial function of the challenge, which should be given to the user directly.
+The index file contains the initial function of the coding challenge, which should be given to the user directly.
 
 ### Test File
 
-This is the file which contains all the unit tests for the challenge. This usually make use of the custom testing framework provided, but see the [Test Framework File](#test-framework-file) for the details.
+This is the file which contains all the unit tests for the coding challenge. This usually make use of the custom testing framework provided, but see the [Test Framework File](#test-framework-file) for the details.
 
 ### Test Framework File
 
 This file contains our **minified** custom testing framework, to validate that the code uploaded from the user is correct. To see the original framework, see the [templates](src/templates/) folder.
 
-> :warning: We have include the most used functions, but there are challenges that contains specific testing for that specific challenge and our test framework may not work on that. **This is not usual**, though.
+> :warning: We have include the most used functions, but there are coding challenges that contains specific testing for that specific coding challenge and our test framework may not work on that. **This is not usual**, though.
 
 ### Run File
 
-This file contains the execution script to run whenever this challenge is uploaded to Judge0.
+This file contains the execution script to run whenever this coding challenge is uploaded to Judge0.
 
 ## Advanced Usage
 
-We can filter most of the params we want the challenge to contain. These are the following:
+We can filter most of the params we want the coding challenge to contain. These are the following:
 
 | Flag                    | Requires Value? | Description                                                                                   | Example                                  |
 | ----------------------- | :-------------: | --------------------------------------------------------------------------------------------- | ---------------------------------------- |
@@ -139,7 +139,7 @@ chmod +x ./examples/judge0-submissioner.sh
 # Set the judge0 token (auth, not user)
 export JUDGE0_AUTH_TOKEN='YOUR_AUTH_TOKEN'
 
-# Submit the challenge solution and the extension (py or js)
+# Submit the coding challenge solution and the extension (py or js)
 ./examples/judge0-submissioner.sh your_challenge_directory your_lang_extension
 
 # Real example
